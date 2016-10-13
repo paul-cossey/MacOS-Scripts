@@ -1,5 +1,5 @@
 #!/bin/sh
-#Active directory domain migration script - edit to suit your environment
+#Active directory domain migration script - edit to suit your environment - This script was put together for 10.11 computers
 
 # Sets new time server
 
@@ -372,8 +372,11 @@ defaults write /Library/Preferences/MunkiReport ReportItems -dict-add ard_model 
 
 ##########################################################################################
 
-#Sets DNS Search domain to both NUA and NUCA
+#Sets DNS Search domains
 
 networksetup -setsearchdomains Ethernet NewDomain OldDomain
+
+#If this is running on Conmputers with Portable Home Directories remove the # to repair the disk permissions
+#/usr/libexec/repair_packages --repair --standard-pkgs --volume /
 
 exit 0
