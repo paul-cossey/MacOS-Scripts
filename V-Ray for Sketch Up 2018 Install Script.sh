@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script assumes that the Educational V-Ray installer .app has been copied to /Users/Shared
+# This script assumes that the silent Educational V-Ray installer (with all supporting files copied to "vray_edu_36003_sketchup_osx.app/Contents/MacOS/") .app has been copied to /Users/Shared
 
 # V-Ray needs to have SketchUp 2018 either already opened to install, or the below folder copied to /Library/Application Support. Sets permissions.
 cp -Rvf /Users/Shared/vray_edu_36003_sketchup_osx.app/Contents/MacOS/SketchUp\ 2018 /Library/Application\ Support/
