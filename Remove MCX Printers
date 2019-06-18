@@ -1,0 +1,8 @@
+#!/bin/bash
+#Removes all printers installed via a (profile manager)config profile
+
+for printer in `lpstat -p | grep 'mcx' | awk '{print $2}'` ; do
+        lpadmin -x $printer
+    done
+
+exit 0
