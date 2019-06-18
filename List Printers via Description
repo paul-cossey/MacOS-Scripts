@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #Script to list installed CUPS printers via the Description
 
 for i in $( lpstat -v | awk '{ print $3 }' | tr ':' ' ' ) ; do lpstat -l -p $i | grep 'printer\|Description' ; done
