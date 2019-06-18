@@ -1,0 +1,17 @@
+#!/bin/bash
+# Thanks to @gmarnin on the Active Directory chanel in the Mac Admins Slack for his help on this!
+# This Script gets the macOS Computer Info Text and pushes it to the description field in the AD computer account
+
+computername=`/usr/sbin/scutil --get LocalHostName`
+adcomputername="$computername$" 
+userid="your_AD_username"
+password="your_AD_password"
+
+Text1=`/usr/bin/defaults read /Library/Preferences/com.apple.RemoteDesktop Text1`
+Text2=`/usr/bin/defaults read /Library/Preferences/com.apple.RemoteDesktop Text2`
+Text3=`/usr/bin/defaults read /Library/Preferences/com.apple.RemoteDesktop Text3`
+Text4=`/usr/bin/defaults read /Library/Preferences/com.apple.RemoteDesktop Text4`
+
+/usr/bin/dscl -u "$userid" -P "$password" /Active\ Directory/yourdomain/All\ Domains -merge "/Computers/$computername$" Comment "$Text1 - $Text2 - $Text3 - $Text4"
+
+exit 0
