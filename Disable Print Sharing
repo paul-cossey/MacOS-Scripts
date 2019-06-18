@@ -1,0 +1,5 @@
+#!/bin/sh
+
+lpstat -p | grep printer | cut -d" " -f2 | xargs -I {} lpadmin -p {} -o printer-is-shared=False
+
+exit $?
